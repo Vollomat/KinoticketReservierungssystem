@@ -1,5 +1,8 @@
 Zum Beispiel immer wenn man einen Button drückt soll die Methode ausgeführt werden und es findet ein Datentransfer zwischen HTML und Spring-Boot-Server statt.
 
+Button Beispiel: 
+ <button type="submit" onclick="UserAction()">Test</button>
+
 
 HTTP Anfragen am Beispiel Kunden:
 
