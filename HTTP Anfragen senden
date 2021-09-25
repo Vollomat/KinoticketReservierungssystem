@@ -1,0 +1,36 @@
+Zum Beispiel immer wenn man einen Button drückt soll die Methode ausgeführt werden und es findet ein Datentransfer zwischen HTML und Spring-Boot-Server statt.
+
+
+HTTP Anfragen am Beispiel Kunden:
+
+Wichtig: Um in HTML die Daten vom Spring-Boot-Server anzuzeigen, muss die Antwort bei GET in JavaScript verarbeitet werden! (muss noch implementiert werden)
+GET (Daten erhalten vom Spring-Boot-Server):
+async function UserAction() {
+            let request = new XMLHttpRequest();
+            request.open('GET', 'http://localhost:8080/kunden/');
+            }
+
+
+POST (Daten an Server senden, damit dort in MySQL gespeichert werden kann):
+async function UserAction() {
+            let request = new XMLHttpRequest();
+            request.open('POST', 'http://localhost:8080/kunden/');
+            request.setRequestHeader('Content-Type', 'application/json');
+            request.send(JSON.stringify({
+                vorname: "Max",
+                nachname: "Musterdivers"
+            }));
+            }
+            
+            
+Für POST benötigt man den Body und hier muss man sich auf gemeinsame Attribute einigen (z.B bei der Registrierung).
+Dann könnte man halt viel mehr als nur wie momentan den Vornamen und Nachnamen senden und in der Datenbank abspeichern.
+ 
+ 
+Vorschläge Attribute (würde alles als String übergeben, da sonst Fehler auftreten können wegen JSON-Format):
+ 
+Wo eine Kommunikation erfolgt:
+Registrierung (Anlegen eines Kundenkontos): emailadresse, passwort, ...
+Login: emailadresse, passwort
+Vorstellung anlegen (Admin-Ausführung): Passwort, filmName, kinosaalNummer, startuhrzeit, laengeDerVorstellungInMinuten, ...
+Ticket buchen: vornameDesBesitzers, nachnameDesBesitzers, startuhrzeit, kinosaalNummer, filmName, bezahlstatus, ...
