@@ -1,7 +1,4 @@
 JavaScript: 
-
-
-
 async function UserAction() {
 
            var xhr = new XMLHttpRequest(); //invoke a new instance of the XMLHttpRequest
@@ -24,12 +21,11 @@ async function UserAction() {
         function success() {
             var data = JSON.parse(this.responseText.toString()); //parse the string to JSON
             console.log(data);
-            alert(data);
         }
 
         // function to handle error
         function error(err) {
-            alert('Request Failed');
+            console.log('Request Failed');
         }
 
 
